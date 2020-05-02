@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace BinarySearch
 {
@@ -33,20 +34,13 @@ namespace BinarySearch
         {
             int left = 0;
             int right = arr.Length;
-            int mid;
-
-            int counter = 0;
 
             while (!(left >= right))
             {
-                counter++;
-                mid = left + (right - left) / 2;
+                int mid = left + (right - left) / 2;
 
                 if (arr[mid] == key)
-                {
-                    Console.WriteLine($"Total iterations: {counter}");
                     return mid;
-                }
 
                 if (arr[mid] > key)
                     right = mid;
@@ -54,7 +48,6 @@ namespace BinarySearch
                     left = mid + 1;
             }
 
-            Console.WriteLine($"Total iterations: {counter}");
             return -1;
         }
 
